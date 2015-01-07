@@ -13,16 +13,16 @@ class Bitmap
   def initialize(m, n)
     @m = m #column
     @n = n #row
-    @table = I [m, n]
+    @table = I [n, m]
   end
 
   def I(args)
     col, row = args.first, args.last
-    @table = Matrix.build(col,row){ WHITE }
+    @table = Matrix.build(row,col){ WHITE }
   end
 
   def clear
-    @table = Matrix.zero( @m, @n )
+    @table = Matrix.zero( @n, @m )
   end
 
   def table; @table; end

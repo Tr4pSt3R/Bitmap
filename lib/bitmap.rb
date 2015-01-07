@@ -10,6 +10,14 @@ def is_valid_command?( arg )
   VALID_CMDS.include? arg
 end
 
+class Bitmap
+  def initialize(m, n)
+    @m = m
+    @n = n
+  end
+end
+
+
 # I M N -
 # Aim: Create a new M x N image with all pixels coloured white (O)
 # param(s): 2 of 2

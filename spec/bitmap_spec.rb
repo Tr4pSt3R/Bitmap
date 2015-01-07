@@ -15,12 +15,3 @@ describe "command input" do
     end
   end
 end
-
-describe "initialise matrix" do
-  context "has dimensions m x n" do
-    it "should have all pixels coloured white" do
-        matrix = I 4 5
-      expect( matrix[0,0] ).to eq( 0 )
-    end
-  end
-end

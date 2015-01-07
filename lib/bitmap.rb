@@ -24,7 +24,7 @@ class Bitmap
 
   def colour(x,y,c)
     offset = -1  #account for origin offset
-    self.table.[]= x+offset, y+offset, c
+    self.table.[]= y+offset, x+offset, c
   end
 end
 
@@ -34,4 +34,4 @@ class Matrix
   end
 end
 
-binding.pry
+# binding.pry

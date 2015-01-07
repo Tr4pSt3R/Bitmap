@@ -47,15 +47,25 @@ describe "colouring" do
   it "should be able to change pixel colour" do
     x,y,c = 1,2,3
     bitmap = Bitmap.new 2, 3
+
+    # Colours the pixel (x,y) with colour c
     bitmap.colour( x,y,c )
-    expect(bitmap.table.element(x-1,y-1)).to eq(c)
+
+    binding.pry
+
+    # expect colouring func to account for origin offset
+    expect(bitmap.table.element(y-1, x-1)).to eq(c)
   end
 end
 
 describe "origin of coordinates" do
   it "should start at 1,1" do
     bitmap = Bitmap.new 5, 6
+
+    # colour pixel at 'origin'
     bitmap.colour(1,1,3)
-    expect( bitmap.table.element(0,0) ).to eq( 3 )
+
+    # expect true origin to have been changed
+    expect(bitmap.table.element(0,0)).to eq(3)
   end
 end

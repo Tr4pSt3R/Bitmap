@@ -1,4 +1,7 @@
-VALID_CMDS = ["I", "C", "L", "V", "H", "F", "S", "X"]
+require 'matrix'
+
+VALID_CMDS = ["init", "I", "C", "L", "V", "H", "F", "S", "X"]
+WHITE = 0
 
 def is_valid_command?( arg )
   VALID_CMDS.include? arg
@@ -9,26 +12,25 @@ end
 # param(s): 2 of 2
 # signature: I 3 2
 def I(args)
-  p "M = #{args.first}"
-  p "N = #{args.last}"
+  # m, n = args.first, args.last
 
-  M.times do
-    N.times do
-      print "0 "
-    end
-    print "\n"
-  end
+  # matrix = Matrix.build(m,n){ WHITE }
 end
 
+
+
 def main
-  cmd = "I"
+  cmd = "init"
   while( cmd != "X" ) do
     print "(bitmap) > "
-    a = gets.chomp
-    a = a.split           #split on white space
-    cmd = a.shift         #grab command
-    args = a.map(&:to_i)  #params of the command, cmd
-    send(cmd, args)
+    a = gets.chomp        # get value from cmd prompt
+
+    a = a.split           # split values on white space(s)
+
+    # get command, first item in array
+    # params of the command, tail-end of array
+    cmd, args = a.shift, a
+    send(cmd, args.map(&:to_i) )
   end
 end
 

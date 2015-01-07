@@ -123,4 +123,27 @@ describe "painting with colour C" do
       )
     end
   end
+
+  context "region filling" do
+    it "should colour any pixel which is the same colour as (x,y)" do
+      col = 5
+      row = 6
+
+      x, y, c = 3, 3, 9
+
+      bitmap = Bitmap.new col, row
+      bitmap.fill_region(x,y,c)
+
+      expect( bitmap.table ).to eq(
+        Matrix[
+          [9, 9, 9, 9, 9],
+          [9, 9, 9, 9, 9],
+          [9, 9, 9, 9, 9],
+          [9, 9, 9, 9, 9],
+          [9, 9, 9, 9, 9],
+          [9, 9, 9, 9, 9]
+        ]
+      )
+    end
+  end
 end

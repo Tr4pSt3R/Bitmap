@@ -27,8 +27,7 @@ describe "initialise matrix" do
       n = 4 #row
 
       bitmap = Bitmap.new m, n
-      matrix = bitmap.I([m,n])
-      expect(matrix.select{|e| (e==0)}.count).to eq(m*n)
+      expect(bitmap.table.select{|e| (e==0)}.count).to eq(m*n)
     end
   end
 end

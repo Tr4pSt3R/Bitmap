@@ -8,16 +8,22 @@ def is_valid_command?( arg )
 end
 
 class Bitmap
-
   WHITE = 0
 
   def initialize(m, n)
     @m = m
     @n = n
+    @table = I [m, n]
   end
 
   def I(args)
     col, row = args.first, args.last
-    @matrix = Matrix.build(col,row){ WHITE }
+    @table = Matrix.build(col,row){ WHITE }
+  end
+
+  def clear; end
+
+  def table
+    @table
   end
 end

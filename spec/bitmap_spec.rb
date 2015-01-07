@@ -27,10 +27,16 @@ describe "initialise matrix" do
       n = 4 #row
 
       bitmap = Bitmap.new m, n
-
       matrix = bitmap.I([m,n])
-
       expect(matrix.select{|e| (e==0)}.count).to eq(m*n)
     end
+  end
+end
+
+describe "clear the table" do
+  it "should set all pixels to white" do
+    bitmap = Bitmap.new 5, 6
+    bitmap.clear
+    expect( bitmap.table ).to eq( Matrix.build(5,6){0} )
   end
 end

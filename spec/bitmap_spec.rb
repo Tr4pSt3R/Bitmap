@@ -1,4 +1,5 @@
 require 'bitmap'
+require 'pry'
 
 describe "command input" do
   context "valid commands" do
@@ -22,8 +23,12 @@ end
 describe "initialise matrix" do
   context "has dimensions m x n" do
     it "should have all pixels coloured white" do
-        matrix = I 4 5
-      expect( matrix[0,0] ).to eq( 0 )
+      m = 5 #col
+      n = 4 #row
+
+      matrix = I [m,n]
+
+      expect(matrix.select{|e| (e==0)}.count).to eq(m*n)
     end
   end
 end

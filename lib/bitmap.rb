@@ -15,12 +15,12 @@ end
 # param(s): 2 of 2
 # signature: I 3 2
 def I(args)
-  m, n = args.first, args.last
-  @matrix = Matrix.build(m,n){ WHITE }
+  col, row = args.first, args.last
+  @matrix = Matrix.build(col,row){ WHITE }
 end
 
-def S
-  @matrix
+def S(*args)
+  p @matrix
 end
 
 def main
@@ -28,41 +28,13 @@ def main
     print "(bitmap) > "
     a = gets.chomp        # get value from cmd prompt
 
-    a = a.split           # split values on white space(s)
-
-    # cmd, args = a.shift, a
-    # cmd  = a.shift
-    # args = a.map(&:to_i)
-
-    cmd, args = a.shift, a.map(&:to_i)
-
-    print "Your entered #{a} \n"
-
-    # get command
-    print "Command #{cmd} \n"
-
-    # get parameters
-    print "Params #{args} \n"
-
-    # binding.pry
-
-    send(cmd, args )
-
+    #a = a.split                     # split values on white space(s)
+    # cmd, args = a.shift, a.map(&:to_i)  #separate cmd from args
+    #
+    # send(cmd, args )
+    cmd = "X"
     break if ( cmd == "X")
   end
-
-  # cmd = "init"
-  # while( cmd != "X" ) do
-  #   print "(bitmap) > "
-  #   a = gets.chomp        # get value from cmd prompt
-  #
-  #   a = a.split           # split values on white space(s)
-  #
-  #   # get command, first item in array
-  #   # params of the command, tail-end of array
-  #   # cmd, args = a.shift, a
-  #   # send(cmd, args.map(&:to_i) )
-  # end
 end
 
 main

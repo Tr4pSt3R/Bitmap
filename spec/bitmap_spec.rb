@@ -46,6 +46,14 @@ describe "colouring" do
     x,y,c = 1,2,3
     bitmap = Bitmap.new 2, 3
     bitmap.colour( x,y,c )
-    expect(bitmap.table.element(x,y)).to eq(c)
+    expect(bitmap.table.element(x-1,y-1)).to eq(c)
+  end
+end
+
+describe "origin of coordinates" do
+  it "should start at 1,1" do
+    bitmap = Bitmap.new 5, 6
+    bitmap.colour(1,1,3)
+    expect( bitmap.table.element(0,0) ).to eq( 3 )
   end
 end

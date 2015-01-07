@@ -11,8 +11,8 @@ class Bitmap
   WHITE = 0
 
   def initialize(m, n)
-    @m = m
-    @n = n
+    @m = m #column
+    @n = n #row
     @table = I [m, n]
   end
 
@@ -28,7 +28,8 @@ class Bitmap
   def table; @table; end
 
   def colour(x,y,c)
-    self.table.[]= x, y, c
+    offset = -1  #account for origin offset
+    self.table.[]= x+offset, y+offset, c
   end
 end
 

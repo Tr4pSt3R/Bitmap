@@ -23,7 +23,13 @@ class Bitmap
 
   def clear; end
 
-  def table
-    @table
+  def table; @table; end
+end
+
+class Matrix
+  def []=(i,j,k)
+    @rows[i][j] = k
   end
 end
+
+binding.pry

@@ -6,6 +6,9 @@ describe "command input" do
       terminate_with_X = is_valid_command? "X"
       expect( terminate_with_X ).to be true
     end
+
+    it "should accept valid commands" do
+    end
   end
 
   context "invalid command" do

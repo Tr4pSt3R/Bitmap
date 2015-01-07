@@ -26,6 +26,10 @@ class Bitmap
     offset = -1  #account for origin offset
     self.table.[]= y+offset, x+offset, c
   end
+
+  def draw_vertical_segment(x, y1, y2, c)
+    [*y1..y2].each{ |y| self.colour(x,y,c) }
+  end
 end
 
 class Matrix

@@ -39,7 +39,16 @@ describe "clear the table" do
 
     bitmap = Bitmap.new col, row
     bitmap.clear
-    expect(bitmap.table).to eq(Matrix.zero(row,col))
+    expect(bitmap.table).to eq(
+      Matrix[
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0]
+      ]
+    )
   end
 end
 
@@ -50,8 +59,6 @@ describe "colouring" do
 
     # Colours the pixel (x,y) with colour c
     bitmap.colour( x,y,c )
-
-    binding.pry
 
     # expect colouring func to account for origin offset
     expect(bitmap.table.element(y-1, x-1)).to eq(c)
@@ -67,5 +74,30 @@ describe "origin of coordinates" do
 
     # expect true origin to have been changed
     expect(bitmap.table.element(0,0)).to eq(3)
+  end
+end
+
+describe "painting with colour C" do
+  context "vertical segment" do
+    it "should draw in column X between rows Y1 and Y2" do
+      col = 5
+      row = 6
+
+      x, y1, y2, c = 2, 3, 4, 9
+
+      bitmap = Bitmap.new col, row
+      bitmap.draw_vertical_segment( x, y1, y2, c )
+
+      expect( bitmap.table ).to eq(
+        Matrix[
+          [0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0],
+          [0, 9, 0, 0, 0],
+          [0, 9, 0, 0, 0],
+          [0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0]
+        ]
+      )
+    end
   end
 end

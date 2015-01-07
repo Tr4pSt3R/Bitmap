@@ -37,6 +37,6 @@ describe "clear the table" do
   it "should set all pixels to white" do
     bitmap = Bitmap.new 5, 6
     bitmap.clear
-    expect( bitmap.table ).to eq( Matrix.build(5,6){0} )
+    expect( bitmap.table ).to eq( Matrix.zero(5,6) )
   end
 end

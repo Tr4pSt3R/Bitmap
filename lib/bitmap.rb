@@ -21,7 +21,9 @@ class Bitmap
     @table = Matrix.build(col,row){ WHITE }
   end
 
-  def clear; end
+  def clear
+    @table = Matrix.zero( @m, @n )
+  end
 
   def table; @table; end
 end

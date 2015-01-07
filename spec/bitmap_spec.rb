@@ -100,4 +100,27 @@ describe "painting with colour C" do
       )
     end
   end
+
+  context "horizontal segment" do
+    it "should draw in row Y between columns X1 and X2" do
+      col = 5
+      row = 6
+
+      x1, x2, y, c = 3, 4, 2, 9
+
+      bitmap = Bitmap.new col, row
+      bitmap.draw_horizontal_segment( x1, x2, y, c )
+
+      expect( bitmap.table ).to eq(
+        Matrix[
+          [0, 0, 0, 0, 0],
+          [0, 0, 9, 9, 0],
+          [0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0]
+        ]
+      )
+    end
+  end
 end

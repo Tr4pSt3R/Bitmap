@@ -21,6 +21,8 @@ class Bitmap
   end
 
   def table; @table; end
+  def row_size; @n; end
+  def column_size; @m; end
 
   def colour(x,y,c)
     offset = -1  #account for origin offset
@@ -38,7 +40,16 @@ class Bitmap
   def fill_region(x,y,c); end
 
   # Show the contents of the current image
-  def show; self.table; end
+  def show
+    self.row_size.times do |row|
+      self.column_size.times do |col|
+        print "#{self.table.element(row, col)} "
+      end
+      print "\n"
+    end
+  end
+
+  
 end
 
 class Matrix

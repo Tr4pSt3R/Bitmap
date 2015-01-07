@@ -26,6 +26,10 @@ class Bitmap
   end
 
   def table; @table; end
+
+  def colour(x,y,c)
+    self.table.[]= x, y, c
+  end
 end
 
 class Matrix

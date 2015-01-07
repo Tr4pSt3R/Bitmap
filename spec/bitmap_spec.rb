@@ -40,3 +40,12 @@ describe "clear the table" do
     expect( bitmap.table ).to eq( Matrix.zero(5,6) )
   end
 end
+
+describe "colouring" do
+  it "should be able to change pixel colour" do
+    x,y,c = 1,2,3
+    bitmap = Bitmap.new 2, 3
+    bitmap.colour( x,y,c )
+    expect(bitmap.table.element(x,y)).to eq(c)
+  end
+end

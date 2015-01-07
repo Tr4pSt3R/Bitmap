@@ -37,8 +37,8 @@ class Bitmap
 
   def fill_region(x,y,c); end
 
-  private
-    # def fill
+  # Show the contents of the current image
+  def show; self.table; end
 end
 
 class Matrix
@@ -47,4 +47,4 @@ class Matrix
   end
 end
 
-# binding.pry
+binding.pry

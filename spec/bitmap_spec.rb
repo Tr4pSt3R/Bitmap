@@ -26,7 +26,9 @@ describe "initialise matrix" do
       m = 5 #col
       n = 4 #row
 
-      matrix = I [m,n]
+      bitmap = Bitmap.new m, n
+
+      matrix = bitmap.I([m,n])
 
       expect(matrix.select{|e| (e==0)}.count).to eq(m*n)
     end

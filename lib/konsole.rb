@@ -2,7 +2,6 @@ require_relative "bitmap"
 
 class Konsole
   def initialize
-    # create initial matrix
     loop do
       print "(bitmap) > "
       a = STDIN.gets.chomp  #gets user input

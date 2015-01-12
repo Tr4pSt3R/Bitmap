@@ -12,7 +12,7 @@ class Konsole
       a = a.split
       cmd, args = a.shift, a.map( &:to_i )
 
-      break if ( %w[x, X].include? cmd )
+      break if ( %w[x, X, exit].include? cmd )
       send cmd, args
 
       # begin
@@ -47,6 +47,24 @@ class Konsole
     c = args[2]
 
     @bitmap.colour x, y, c
+  end
+
+  def V(*args)
+    args = args.flatten
+    x  = args[0]
+    y1 = args[1]
+    y2 = args[2]
+    c  = args[3]
+    @bitmap.draw_vertical_segment x, y1, y2, c
+  end
+
+  def H(*args)
+    args = args.flatten
+    x1 = args[0]
+    x2 = args[1]
+    y  = args[2]
+    c  = args[3]
+    @bitmap.draw_horizontal_segment x1, x2, y, c
   end
 end
 

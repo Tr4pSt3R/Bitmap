@@ -56,7 +56,7 @@ class Matrix
     @rows[i][j] = k
   end
 end
-# 
+#
 # def I(*args)
 #   m = args.first
 #   n = args.last
@@ -83,4 +83,3 @@ end
 # end
 
 # main
-binding.pry

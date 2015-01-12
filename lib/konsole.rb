@@ -1,4 +1,5 @@
-require_relative "lib/bitmap"
+require_relative "bitmap"
+require 'pry'
 
 class Konsole
   def initialize
@@ -9,7 +10,18 @@ class Konsole
     loop do
       print "(bitmap) > "
       a = STDIN.gets.chomp
+
+      a = a.split
+      cmd, args = a.shift, a
+
+      begin
+        send cmd, args
+      rescue
+        p "Unrecognised input"
+      end
       break if (i==5)
     end
   end
 end
+
+binding.pry

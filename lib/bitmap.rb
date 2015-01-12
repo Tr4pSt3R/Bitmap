@@ -1,11 +1,4 @@
-require 'pry'
 require 'matrix'
-
-VALID_CMDS = ["init", "I", "C", "L", "V", "H", "F", "S", "X"]
-
-def is_valid_command?( arg )
-  VALID_CMDS.include? arg
-end
 
 class Bitmap
   WHITE = 0

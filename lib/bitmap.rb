@@ -56,35 +56,31 @@ class Matrix
     @rows[i][j] = k
   end
 end
-
-def I(*args)
-  m = args.first
-  n = args.last
-
-  Bitmap.new m, n
-end
-
-class Konsole
-  # def initialize
-  #
-  # end
-end
-
-def main
-  cmd = "init"
-
-  loop do
-    print "(bitmap)> "
-    input = STDIN.gets.chomp
-
-    input = input.split
-    cmd, args = input.shift, input
-
-    send cmd, args
-
-    break if (cmd=="X")
-  end
-end
+# 
+# def I(*args)
+#   m = args.first
+#   n = args.last
+#
+#   Bitmap.new m, n
+# end
+#
+#
+#
+# def main
+#   cmd = "init"
+#
+#   loop do
+#     print "(bitmap)> "
+#     input = STDIN.gets.chomp
+#
+#     input = input.split
+#     cmd, args = input.shift, input
+#
+#     send cmd, args
+#
+#     break if (cmd=="X")
+#   end
+# end
 
 # main
 binding.pry

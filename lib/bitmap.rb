@@ -19,6 +19,7 @@ class Bitmap
   def clear
     @table = Matrix.zero( @n, @m )
   end
+  alias :c :clear
 
   def table; @table; end
   def row_size; @n; end
@@ -48,8 +49,6 @@ class Bitmap
       print "\n"
     end
   end
-
-  
 end
 
 class Matrix
@@ -58,4 +57,18 @@ class Matrix
   end
 end
 
+def main
+  cmd = "init"
+  loop do
+    print "(bitmap)> "
+    input = STDIN.gets.chomp
+
+    input = input.split
+    cmd, args = input.shift, input
+
+    break if (cmd=="X")
+  end
+end
+
+# main
 binding.pry

@@ -19,7 +19,6 @@ class Bitmap
   def clear
     @table = Matrix.zero( @n, @m )
   end
-  alias :c :clear
 
   def table; @table; end
   def row_size; @n; end
@@ -27,7 +26,7 @@ class Bitmap
 
   def colour(x,y,c)
     offset = -1  #account for origin offset
-    self.table.[]= y+offset, x+offset, c
+    @table.[]= y+offset, x+offset, c
   end
 
   def draw_vertical_segment(x, y1, y2, c)

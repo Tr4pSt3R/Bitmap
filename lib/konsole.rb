@@ -10,9 +10,9 @@ class Konsole
       a = STDIN.gets.chomp
 
       a = a.split
-      cmd, args = a.shift, a.map(&:to_i)
+      cmd, args = a.shift, a.map( &:to_i )
 
-      break if (%w[x, X].include? cmd)
+      break if ( %w[x, X].include? cmd )
       send cmd, args
 
       # begin
@@ -38,6 +38,15 @@ class Konsole
 
   def C(*args)
     @bitmap.clear
+  end
+
+  def L(*args)
+    args = args.flatten
+    x = args[0]
+    y = args[1]
+    c = args[2]
+
+    @bitmap.colour x, y, c
   end
 end
 

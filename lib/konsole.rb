@@ -10,9 +10,9 @@ class Konsole
       a = STDIN.gets.chomp
 
       a = a.split
-      cmd, args = a.shift, a.map( &:to_i )
+      cmd, args = a.shift.downcase, a.map( &:to_i )
 
-      break if ( %w[x, X, exit].include? cmd )
+      break if ( %w[x, X, exit, quit].include? cmd )
       send cmd, args
 
       # begin
@@ -24,7 +24,7 @@ class Konsole
     end
   end
 
-  def I(*args)
+  def i(*args)
     args = args.flatten
     m = args.first
     n = args.last
@@ -32,15 +32,15 @@ class Konsole
     @bitmap = Bitmap.new m, n
   end
 
-  def S(*args)
+  def s(*args)
     @bitmap.show
   end
 
-  def C(*args)
+  def c(*args)
     @bitmap.clear
   end
 
-  def L(*args)
+  def l(*args)
     args = args.flatten
     x = args[0]
     y = args[1]
@@ -49,7 +49,7 @@ class Konsole
     @bitmap.colour x, y, c
   end
 
-  def V(*args)
+  def v(*args)
     args = args.flatten
     x  = args[0]
     y1 = args[1]
@@ -58,7 +58,7 @@ class Konsole
     @bitmap.draw_vertical_segment x, y1, y2, c
   end
 
-  def H(*args)
+  def h(*args)
     args = args.flatten
     x1 = args[0]
     x2 = args[1]
@@ -68,4 +68,5 @@ class Konsole
   end
 end
 
-binding.pry
+# binding.pry
+k = Konsole.new
